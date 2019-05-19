@@ -2,6 +2,6 @@
  * Public API Surface of cdk
  */
 
-export * from './cdk.module';
-export * from './directives/repeat-times-of.context';
-export * from './directives/repeat-times-of.directive';
+export * from './lib/cdk.module';
+export * from './lib/directives/repeat-times-of.context';
+export * from './lib/directives/repeat-times-of.directive';
