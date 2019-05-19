@@ -1,0 +1,86 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "google-maps": {
+      "projectType": "library",
+      "root": "projects/google-maps",
+      "sourceRoot": "projects/google-maps/src",
+      "prefix": "dy",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/google-maps/tsconfig.lib.json",
+            "project": "projects/google-maps/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/google-maps/src/test.ts",
+            "tsConfig": "projects/google-maps/tsconfig.spec.json",
+            "karmaConfig": "projects/google-maps/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/google-maps/tsconfig.lib.json",
+              "projects/google-maps/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "cdk": {
+      "projectType": "library",
+      "root": "projects/cdk",
+      "sourceRoot": "projects/cdk/src",
+      "prefix": "dy",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cdk/tsconfig.lib.json",
+            "project": "projects/cdk/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cdk/src/test.ts",
+            "tsConfig": "projects/cdk/tsconfig.spec.json",
+            "karmaConfig": "projects/cdk/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cdk/tsconfig.lib.json",
+              "projects/cdk/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "google-maps",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "styleext": "scss",
+      "viewEncapsulation": "None",
+      "prefix": "dy"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "dy"
+    }
+  }
+}
